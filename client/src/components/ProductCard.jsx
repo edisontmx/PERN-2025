@@ -4,21 +4,23 @@ import { useProductStore } from '../store/useProductStore'
 
 function ProductCard({ product }) {
     const { deleteProduct } = useProductStore()
-    console.log(product)
 
-    const handleDelete = async () => {
-    if (window.confirm("youre going to delete this item, please conirm...!!!")) {
-      await deleteProduct(id)
-      navigate("/")
-    }
-  }
+    /*     const handleDelete = async () => {
+        if (window.confirm("youre going to delete this item, please conirm...!!!")) {
+          await deleteProduct(id)
+          navigate("/")
+        }
+      } */
 
 
     return <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
 
         {/* imagen del producto */}
         <figure className='relative pt-[56.25%]'>
-            <img src={product.image} alt={product.name} className='absolute top-0 w-full h-full object-cover' />
+            <img
+                src={product.image}
+                alt={product.name}
+                className='absolute top-0 w-full h-full object-cover' />
 
         </figure>
 
@@ -31,7 +33,8 @@ function ProductCard({ product }) {
                 <Link to={`/product/${product.id}`} className='btn btn-sm btn-info btn-outline'>
                     <EditIcon className="size-4" />
                 </Link>
-                <button className='btn btn-sm btn-error btn-outline' onClick={handleDelete/* deleteProduct(product.id) */}>
+                <button className='btn btn-sm btn-error btn-outline'
+                    onClick={() => deleteProduct(product.id)}>
                     <TrashIcon className='size-4' />
                 </button>
             </div>

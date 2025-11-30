@@ -8,7 +8,7 @@ function AddProductModal() {
         <dialog id='add_product_modal' className='modal'>
             <div className='modal-box'>
                 <form method='dialog'>
-                    <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>close</button>
+                    <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>X close</button>
                 </form>
 
                 {/* encabezado */}
