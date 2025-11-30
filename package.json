@@ -1,0 +1,24 @@
+{
+  "name": "pern-2025",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "scripts": {
+    "dev": "node --env-file=.env --watch server/server.js",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client",
+    "start": "node server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@arcjet/node": "^1.0.0-beta.11",
+    "@neondatabase/serverless": "^1.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1"
+  }
+}
