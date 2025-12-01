@@ -1,16 +1,17 @@
 import { EditIcon, TrashIcon } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useProductStore } from '../store/useProductStore'
 
 function ProductCard({ product }) {
     const { deleteProduct } = useProductStore()
+    const navigate = useNavigate()
 
-    /*     const handleDelete = async () => {
-        if (window.confirm("youre going to delete this item, please conirm...!!!")) {
-          await deleteProduct(id)
-          navigate("/")
+    const handleDelete = async () => {
+        if (window.confirm("youre going to delete this item, please confirm...!!!")) {
+            await deleteProduct(product.id)
+            navigate("/")
         }
-      } */
+    }
 
 
     return <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
@@ -33,15 +34,23 @@ function ProductCard({ product }) {
                 <Link to={`/product/${product.id}`} className='btn btn-sm btn-info btn-outline'>
                     <EditIcon className="size-4" />
                 </Link>
-                <button className='btn btn-sm btn-error btn-outline'
-                    onClick={() => deleteProduct(product.id)}>
+                <button
+                    className='btn btn-sm btn-error btn-outline'
+                    onClick={handleDelete}>
                     <TrashIcon className='size-4' />
                 </button>
+                {/* <button
+                    className='btn btn-sm btn-error btn-outline'
+                    onClick={() => deleteProduct(product.id)}>
+                    <TrashIcon className='size-4' />
+                </button> */}
             </div>
 
         </div>
 
     </div>
 }
+
+
 
 export default ProductCard
